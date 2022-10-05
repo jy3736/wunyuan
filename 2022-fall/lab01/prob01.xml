@@ -1,0 +1,18 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="mlplay_class" id="}D[rZ|?x[Kpf=-l[SEKU" x="262" y="213">
+    <statement name="UPDATE">
+      <block type="mlplay_return_value" id="34+3/jyn7*Y517.RPf[(">
+        <value name="INPUT0">
+          <shadow type="math_number" id="^vQ{WhO|7Aqj8-L!L@%9">
+            <field name="NUM">100</field>
+          </shadow>
+        </value>
+        <value name="INPUT1">
+          <shadow type="math_number" id="P7S?Q|)9S;=0TQo.8##m">
+            <field name="NUM">100</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>
