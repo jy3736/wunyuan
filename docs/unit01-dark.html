@@ -1,0 +1,676 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>單元 1 - 認識 PAIA 積木程式工具</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style><link rel="stylesheet" href="dark-theme.css"><link rel="stylesheet"  target="_blank" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/github-dark-dimmed.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script></head><body><article id="28f04db3-994e-43a0-9a8b-6df90be92075" class="page sans"><header><img class="page-cover-image" src="%E5%96%AE%E5%85%83%201%20-%20%E8%AA%8D%E8%AD%98%20PAIA%20%E7%A9%8D%E6%9C%A8%E7%A8%8B%E5%BC%8F%E5%B7%A5%E5%85%B7%2028f04db3994e43a09a8b6df90be92075/2.png" style="object-position:center 100%"/><div class="page-header-icon page-header-icon-with-cover"><img class="icon" src="%E5%96%AE%E5%85%83%201%20-%20%E8%AA%8D%E8%AD%98%20PAIA%20%E7%A9%8D%E6%9C%A8%E7%A8%8B%E5%BC%8F%E5%B7%A5%E5%85%B7%2028f04db3994e43a09a8b6df90be92075/yang01.png"/></div><h1 class="page-title">單元 1 - 認識 PAIA 積木程式工具</h1><link rel="stylesheet" href="dark-theme.css"><link rel="stylesheet"  target="_blank" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/styles/github-dark-dimmed.min.css"><script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.5.0/highlight.min.js"></script></header><div class="page-body"><p id="3e0d0a17-2c28-4292-9a96-2030ef667879" class="">
+</p><h1 id="fcdaf788-1dbf-4bcf-bcb1-4ac5815b6f47" class="block-color-pink_background">參考資料</h1><h2 id="13677b71-a1c0-45b5-a25c-45edd6ec0042" class=""><a  target="_blank" href="https://www.paia-arena.com/"><strong><strong>PAIA 學習平台Ｘ遊戲式學習</strong></strong></a></h2><h2 id="602856b4-ec0e-4e68-b7e6-c634f2cdf54d" class=""><a  target="_blank" href="https://programtheworld.tw/main.php">「社團法人中華民國愛自造者學習協會」(PTWA)</a><a  target="_blank" href="https://programtheworld.tw/main.php"><strong><strong> </strong></strong></a></h2><h2 id="d47c3ad0-0142-47c4-bcbd-44d52994eede" class=""><a  target="_blank" href="https://github.com/PAIA-Playful-AI-Arena/Paia-Desktop"><strong><strong>PAIA Desktop 應用程式下載</strong></strong></a></h2><figure id="237bbb55-4d35-4290-ac18-e45dfde8c694"><div class="source">https://github.com/PAIA-Playful-AI-Arena/Paia-Desktop</div></figure><h1 id="69694e27-5eb5-4cf1-902e-42223c715246" class="block-color-pink_background">PAIA 遊戲式學習工具 簡介</h1><div id="d5c41bb3-236c-49b0-8767-1500aaa02025" class="column-list"><div id="2850e733-8212-4583-97d8-a16555dee30f" style="width:31.25%" class="column"><figure id="f1882cc7-3972-4878-b740-6ed2838f99aa" class="image"><a href="%E5%96%AE%E5%85%83%201%20-%20%E8%AA%8D%E8%AD%98%20PAIA%20%E7%A9%8D%E6%9C%A8%E7%A8%8B%E5%BC%8F%E5%B7%A5%E5%85%B7%2028f04db3994e43a09a8b6df90be92075/Untitled.png"><img style="width:192px" src="%E5%96%AE%E5%85%83%201%20-%20%E8%AA%8D%E8%AD%98%20PAIA%20%E7%A9%8D%E6%9C%A8%E7%A8%8B%E5%BC%8F%E5%B7%A5%E5%85%B7%2028f04db3994e43a09a8b6df90be92075/Untitled.png"/></a></figure><p id="46878f0b-3a2b-4dc5-be8c-6a1e1fbe00ab" class="">
+</p></div><div id="2677a604-ebbc-4fea-8d09-ddc8a27c3a55" style="width:68.75%" class="column"><figure id="f9472cac-df63-44e0-a3a2-eb97d7bac983" class="image"><a href="%E5%96%AE%E5%85%83%201%20-%20%E8%AA%8D%E8%AD%98%20PAIA%20%E7%A9%8D%E6%9C%A8%E7%A8%8B%E5%BC%8F%E5%B7%A5%E5%85%B7%2028f04db3994e43a09a8b6df90be92075/paia01.png"><img style="width:1600px" src="%E5%96%AE%E5%85%83%201%20-%20%E8%AA%8D%E8%AD%98%20PAIA%20%E7%A9%8D%E6%9C%A8%E7%A8%8B%E5%BC%8F%E5%B7%A5%E5%85%B7%2028f04db3994e43a09a8b6df90be92075/paia01.png"/></a></figure><figure id="d6aaeb5e-81ce-46e0-926c-a75ec423a0eb"><div class="source"><a  target="_blank" href="https://www.notion.soundefined"></a></div></figure></div></div><h1 id="bf57c880-bc5c-4632-b4f2-adc94ce0c016" class="block-color-pink_background">Arkanoid</h1><figure id="0c94f030-ecb2-4382-9a22-3bc05a7ff163" class="image"><a href="%E5%96%AE%E5%85%83%201%20-%20%E8%AA%8D%E8%AD%98%20PAIA%20%E7%A9%8D%E6%9C%A8%E7%A8%8B%E5%BC%8F%E5%B7%A5%E5%85%B7%2028f04db3994e43a09a8b6df90be92075/Untitled%201.png"><img style="width:1424px" src="%E5%96%AE%E5%85%83%201%20-%20%E8%AA%8D%E8%AD%98%20PAIA%20%E7%A9%8D%E6%9C%A8%E7%A8%8B%E5%BC%8F%E5%B7%A5%E5%85%B7%2028f04db3994e43a09a8b6df90be92075/Untitled%201.png"/></a></figure><figure id="88fb01dc-334b-428a-98c2-07c73533a63b" class="image"><a  target="_blank" href="https://camo.githubusercontent.com/a2a0ed0f4e012779cdf3d7fdeda6371c1a4cb3483e91c56442db5d3b56440798/68747470733a2f2f692e696d6775722e636f6d2f627271615738352e676966"><img style="width:242px" src="https://camo.githubusercontent.com/a2a0ed0f4e012779cdf3d7fdeda6371c1a4cb3483e91c56442db5d3b56440798/68747470733a2f2f692e696d6775722e636f6d2f627271615738352e676966"/></a></figure><h1 id="b7385b66-801c-45d0-8f1e-61e4b53f9895" class="block-color-pink_background">Maze Car</h1><figure id="9fa6fb9e-f10e-430a-9212-e1dd35891bfc" class="image"><a href="%E5%96%AE%E5%85%83%201%20-%20%E8%AA%8D%E8%AD%98%20PAIA%20%E7%A9%8D%E6%9C%A8%E7%A8%8B%E5%BC%8F%E5%B7%A5%E5%85%B7%2028f04db3994e43a09a8b6df90be92075/Untitled%202.png"><img style="width:1438px" src="%E5%96%AE%E5%85%83%201%20-%20%E8%AA%8D%E8%AD%98%20PAIA%20%E7%A9%8D%E6%9C%A8%E7%A8%8B%E5%BC%8F%E5%B7%A5%E5%85%B7%2028f04db3994e43a09a8b6df90be92075/Untitled%202.png"/></a></figure><figure id="36d77aed-17e3-412d-99dc-d6acc75b7d7c" class="image"><a  target="_blank" href="https://i.imgur.com/uDn6Foi.gif"><img src="https://i.imgur.com/uDn6Foi.gif"/></a></figure><h1 id="5369798e-c7aa-428a-bc27-488b7cd5e48b" class="block-color-pink_background">第一個 Maze Car 程式</h1><p id="3ef99175-11fd-4e39-9bba-15879a30c976" class=""><a  target="_blank" href="https://minhaskamal.github.io/DownGit/#/home?url=https://github.com/jy3736/wunyuan/blob/main/docs/2022-fall/lab01/prob01.xml"><mark class="highlight-yellow_background"><strong>下載範例程式</strong></mark></a></p><div id="10e6f59e-e0ca-4515-bd5d-f44858b8bf60" class="column-list"><div id="9dbf7d40-a92a-4f6a-a704-9c9283a45da7" style="width:37.5%" class="column"><figure id="f67f995f-6a0b-4cc0-b177-fc949cfddc0f" class="image"><a href="%E5%96%AE%E5%85%83%201%20-%20%E8%AA%8D%E8%AD%98%20PAIA%20%E7%A9%8D%E6%9C%A8%E7%A8%8B%E5%BC%8F%E5%B7%A5%E5%85%B7%2028f04db3994e43a09a8b6df90be92075/yang02.png"><img style="width:192px" src="%E5%96%AE%E5%85%83%201%20-%20%E8%AA%8D%E8%AD%98%20PAIA%20%E7%A9%8D%E6%9C%A8%E7%A8%8B%E5%BC%8F%E5%B7%A5%E5%85%B7%2028f04db3994e43a09a8b6df90be92075/yang02.png"/></a></figure><h3 id="18282778-0ca1-4691-ada6-774f35f321ea" class="block-color-yellow">用 100 的轉速往前衝吧!</h3><p id="45a79f80-627d-4e67-b38e-cc4a67262c0f" class="">
+</p></div><div id="a82d4aa9-853d-415f-9b00-ae63fe0e4404" style="width:62.5%" class="column"><figure id="b82e62fc-0024-4e50-9f46-86f5b79cbf52" class="image"><a href="%E5%96%AE%E5%85%83%201%20-%20%E8%AA%8D%E8%AD%98%20PAIA%20%E7%A9%8D%E6%9C%A8%E7%A8%8B%E5%BC%8F%E5%B7%A5%E5%85%B7%2028f04db3994e43a09a8b6df90be92075/Untitled%203.png"><img style="width:432px" src="%E5%96%AE%E5%85%83%201%20-%20%E8%AA%8D%E8%AD%98%20PAIA%20%E7%A9%8D%E6%9C%A8%E7%A8%8B%E5%BC%8F%E5%B7%A5%E5%85%B7%2028f04db3994e43a09a8b6df90be92075/Untitled%203.png"/></a></figure><figure class="block-color-gray_background callout" style="white-space:pre-wrap;display:flex" id="6bb41552-2db1-4cd4-8ebb-a76e54fccbe0"><div style="font-size:1.5em"><span class="icon">💡</span></div><div style="width:100%"><mark class="highlight-red">左右輪的轉速設定區間為：-255 ~ 255</mark></div></figure></div></div><h1 id="d2f18054-87c4-4e39-a8f1-e00196f6e96a" class="block-color-pink_background">動動腦~小試身手</h1><h2 id="f034b512-5959-4ed1-9ea6-ff7fbdd121e5" class=""><mark class="highlight-yellow">問題 1：如何讓車子走快一點？</mark></h2><h2 id="ae82b38e-93a0-4001-96c8-98feff51da3e" class=""><mark class="highlight-yellow">問題 2：如何讓車子走慢一點？</mark></h2><h2 id="ae9a8383-5ac2-46f2-8d29-653f67286cc9" class=""><mark class="highlight-yellow">問題 3：如何讓車子慢慢的偏向右邊？</mark></h2><h2 id="816b2ebc-9bd0-43af-8aa9-1e6d0c9aee40" class=""><mark class="highlight-yellow">問題 4：如何讓車子慢慢的偏向左邊？</mark></h2><h2 id="f4a66760-1f0a-4ea1-8717-9ef0f50a6b75" class=""><mark class="highlight-yellow">問題 5：如何讓車子在原地打轉？</mark></h2><p id="0d98939c-be50-493b-8ca6-1486879e7306" class="">
+</p><p id="6bfbd536-343b-423f-941c-e3254398d1ec" class="">
+</p><figure id="d09e9418-db89-49f2-85e3-cb16945df720" class="image"><a href="%E5%96%AE%E5%85%83%201%20-%20%E8%AA%8D%E8%AD%98%20PAIA%20%E7%A9%8D%E6%9C%A8%E7%A8%8B%E5%BC%8F%E5%B7%A5%E5%85%B7%2028f04db3994e43a09a8b6df90be92075/%25E5%259C%2596%25E7%2589%25873.png"><img style="width:1322px" src="%E5%96%AE%E5%85%83%201%20-%20%E8%AA%8D%E8%AD%98%20PAIA%20%E7%A9%8D%E6%9C%A8%E7%A8%8B%E5%BC%8F%E5%B7%A5%E5%85%B7%2028f04db3994e43a09a8b6df90be92075/%25E5%259C%2596%25E7%2589%25873.png"/></a></figure></div></article>
+<script>hljs.highlightAll();</script>
+</body></html>
