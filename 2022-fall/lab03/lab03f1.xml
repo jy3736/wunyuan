@@ -5,7 +5,7 @@
     <variable id="L7*M.|1-:aTogt#gWFgY">右輪</variable>
     <variable id="OW+52J{_%pE|+9xbUm4U">左輪</variable>
   </variables>
-  <block type="mlplay_class" id="D2bg`lpqBJ-T*uuA%:m2" x="-37" y="-162">
+  <block type="mlplay_class" id="D2bg`lpqBJ-T*uuA%:m2" x="-37" y="-62">
     <statement name="INIT">
       <block type="procedures_callnoreturn" id="ft1kHKYc|(1Ol;HyS5u^">
         <mutation name="前進">
@@ -22,6 +22,33 @@
       <block type="controls_if" id="D$5M:@4O-wb+C#7NL^C_">
         <mutation elseif="1" else="1"></mutation>
         <value name="IF0">
+          <block type="logic_compare" id="Y%F@iEwhw]q)_LAlGM0*">
+            <field name="OP">GT</field>
+            <value name="A">
+              <block type="mlplay_get_info" id="LZTjB*^qGQa;`.zb=x#`">
+                <field name="FIELD">scene_info['L_T_sensor']</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="qC}_6zUa|]ySCaH+j})I">
+                <field name="NUM">15</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="procedures_callnoreturn" id="sUPNUW0dEjMc[N5h+pi?">
+            <mutation name="左轉">
+              <arg name="速度"></arg>
+            </mutation>
+            <value name="ARG0">
+              <block type="math_number" id="F!/%{aZgMn,*1JAuj+B)">
+                <field name="NUM">255</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <value name="IF1">
           <block type="logic_compare" id="#}sVc)hk.gQ]8{R^L5Ez">
             <field name="OP">GT</field>
             <value name="A">
@@ -36,7 +63,7 @@
             </value>
           </block>
         </value>
-        <statement name="DO0">
+        <statement name="DO1">
           <block type="procedures_callnoreturn" id="U#Cb2`Clik68G(s2]2uX">
             <mutation name="偏左">
               <arg name="速度"></arg>
@@ -54,42 +81,7 @@
             </value>
           </block>
         </statement>
-        <value name="IF1">
-          <block type="logic_operation" id="2roCcoyAUYNDvA0;H[9j">
-            <field name="OP">OR</field>
-            <value name="A">
-              <block type="logic_compare" id="5S((5o#e~|rxRf4]I.GH">
-                <field name="OP">GT</field>
-                <value name="A">
-                  <block type="mlplay_get_info" id="|b(!|e{/D5P;Hmr/MTwF">
-                    <field name="FIELD">scene_info['L_sensor']</field>
-                  </block>
-                </value>
-                <value name="B">
-                  <block type="math_number" id="?6:/W#GT~.xWy4fOgfM#">
-                    <field name="NUM">0.5</field>
-                  </block>
-                </value>
-              </block>
-            </value>
-            <value name="B">
-              <block type="logic_compare" id="Pl*u[[vK0h9D^N0J!RL=">
-                <field name="OP">GT</field>
-                <value name="A">
-                  <block type="mlplay_get_info" id="ikp,YSRI4B**a*DEIzhj">
-                    <field name="FIELD">scene_info['F_sensor']</field>
-                  </block>
-                </value>
-                <value name="B">
-                  <block type="math_number" id="q4(!J(+Pehz#1_yd;x)3">
-                    <field name="NUM">50</field>
-                  </block>
-                </value>
-              </block>
-            </value>
-          </block>
-        </value>
-        <statement name="DO1">
+        <statement name="ELSE">
           <block type="procedures_callnoreturn" id="VBQ?bb0;AwPkmyxumZgv">
             <mutation name="前進">
               <arg name="速度"></arg>
@@ -97,18 +89,6 @@
             <value name="ARG0">
               <block type="math_number" id="JNq64{hBIBArXzo]XCEs">
                 <field name="NUM">255</field>
-              </block>
-            </value>
-          </block>
-        </statement>
-        <statement name="ELSE">
-          <block type="procedures_callnoreturn" id="-QdBf8;@HX/Va2TPD?uZ">
-            <mutation name="前進">
-              <arg name="速度"></arg>
-            </mutation>
-            <value name="ARG0">
-              <block type="math_number" id="$/W.C!`PE194H]yaz]=Z">
-                <field name="NUM">10</field>
               </block>
             </value>
           </block>
@@ -136,7 +116,7 @@
       </block>
     </statement>
   </block>
-  <block type="procedures_defnoreturn" id="Sdf3mID%i2)zPl~c|IR," x="488" y="-88">
+  <block type="procedures_defnoreturn" id="Sdf3mID%i2)zPl~c|IR," x="537" y="-38">
     <mutation>
       <arg name="速度" varid="w,;8jAxtT*#/M$6Y8OCL"></arg>
     </mutation>
@@ -163,7 +143,7 @@
       </block>
     </statement>
   </block>
-  <block type="procedures_defnoreturn" id="Of[L1`8QJ?zo4*:[0YIu" x="488" y="188">
+  <block type="procedures_defnoreturn" id="Of[L1`8QJ?zo4*:[0YIu" x="537" y="88">
     <mutation>
       <arg name="速度" varid="w,;8jAxtT*#/M$6Y8OCL"></arg>
       <arg name="輪差" varid="*[LIFXd(c+0H{#0`b~pc"></arg>
@@ -198,6 +178,41 @@
                   </shadow>
                   <block type="variables_get" id="e!^jFN0:])UO$lLu?U.o">
                     <field name="VAR" id="*[LIFXd(c+0H{#0`b~pc">輪差</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="WGwDH)[#Yxo^TCLN/f0E" x="538" y="213">
+    <mutation>
+      <arg name="速度" varid="w,;8jAxtT*#/M$6Y8OCL"></arg>
+    </mutation>
+    <field name="NAME">左轉</field>
+    <comment pinned="false" h="80" w="160">描述此函式...</comment>
+    <statement name="STACK">
+      <block type="variables_set" id="~jvO*R):C3,8:;)$;Ohn">
+        <field name="VAR" id="L7*M.|1-:aTogt#gWFgY">右輪</field>
+        <value name="VALUE">
+          <block type="variables_get" id="9=!@NCPyE)^BXWF4NC{#">
+            <field name="VAR" id="w,;8jAxtT*#/M$6Y8OCL">速度</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="Sggt8$:RKZU5UpP;d_|6">
+            <field name="VAR" id="OW+52J{_%pE|+9xbUm4U">左輪</field>
+            <value name="VALUE">
+              <block type="math_single" id="u/,oyF3QVPqnzB`CHM+0">
+                <field name="OP">NEG</field>
+                <value name="NUM">
+                  <shadow type="math_number" id="u85p*^Xz~GuPZ6:w8_4]">
+                    <field name="NUM">9</field>
+                  </shadow>
+                  <block type="variables_get" id="y@?]R~oQvnI4T7B6tmQg">
+                    <field name="VAR" id="w,;8jAxtT*#/M$6Y8OCL">速度</field>
                   </block>
                 </value>
               </block>
