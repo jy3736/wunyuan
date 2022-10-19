@@ -1,0 +1,179 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="OW+52J{_%pE|+9xbUm4U">左輪</variable>
+    <variable id="*[LIFXd(c+0H{#0`b~pc">輪差</variable>
+    <variable id="L7*M.|1-:aTogt#gWFgY">右輪</variable>
+  </variables>
+  <block type="mlplay_class" id="D2bg`lpqBJ-T*uuA%:m2" x="187" y="13">
+    <statement name="INIT">
+      <block type="variables_set" id="CnqbYu^5akQ3PpFpxVK;">
+        <field name="VAR" id="OW+52J{_%pE|+9xbUm4U">左輪</field>
+        <value name="VALUE">
+          <block type="math_number" id="UPf=}iL1cAzG08du?3W(">
+            <field name="NUM">255</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="4L+*/g/aQajD[V_*!4Y4">
+            <field name="VAR" id="L7*M.|1-:aTogt#gWFgY">右輪</field>
+            <value name="VALUE">
+              <block type="math_number" id="`717qlKRP?`dr,?F:|KN">
+                <field name="NUM">255</field>
+              </block>
+            </value>
+            <next>
+              <block type="variables_set" id="DgAyr%n*Ti+KizI:hW8?">
+                <field name="VAR" id="*[LIFXd(c+0H{#0`b~pc">輪差</field>
+                <value name="VALUE">
+                  <block type="math_number" id="WN)|=!8LXBbhT|2n}mQm">
+                    <field name="NUM">0.7</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="UPDATE">
+      <block type="controls_if" id="%/3C8gmA9)v*S_U?Ab3z">
+        <value name="IF0">
+          <block type="mlplay_game_status" id="WMh5ac(!ZerX22ZiI~jS">
+            <field name="STATUS">GAME_OVER</field>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="text_print" id="]]/L$/F=yefhL|[WQnf8">
+            <value name="TEXT">
+              <shadow type="text" id="`Pa)RfRp{0kiH(B1{4Wk">
+                <field name="TEXT">abc</field>
+              </shadow>
+              <block type="text_join" id="P_D.cgQ=AlE5AQPb^)S;">
+                <mutation items="3"></mutation>
+                <value name="ADD0">
+                  <block type="variables_get" id="];S0|@%1q!+ROOD!u2|i">
+                    <field name="VAR" id="*[LIFXd(c+0H{#0`b~pc">輪差</field>
+                  </block>
+                </value>
+                <value name="ADD1">
+                  <block type="text" id="5/r@s#9aIe5kCI1*qCtW">
+                    <field name="TEXT"> =&gt; </field>
+                  </block>
+                </value>
+                <value name="ADD2">
+                  <block type="mlplay_get_info" id="t!l.xO$_tp6ND?%70UHB">
+                    <field name="FIELD">scene_info['frame']</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <next>
+              <block type="mlplay_return_action" id="Gz_:hC5:|yz6n(%O=?FI">
+                <field name="ACTION">RESET</field>
+              </block>
+            </next>
+          </block>
+        </statement>
+        <next>
+          <block type="controls_if" id="D$5M:@4O-wb+C#7NL^C_">
+            <mutation else="1"></mutation>
+            <value name="IF0">
+              <block type="logic_compare" id="#}sVc)hk.gQ]8{R^L5Ez">
+                <field name="OP">LT</field>
+                <value name="A">
+                  <block type="mlplay_get_info" id="By8ZxV4T_?N0L2ydO#{h">
+                    <field name="FIELD">scene_info['L_T_sensor']</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <block type="math_number" id="x@3Y6!ZMYjZsm-%-Xg0G">
+                    <field name="NUM">5</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <statement name="DO0">
+              <block type="variables_set" id="nHg4Ds`6)gF7xd)AN@n3">
+                <field name="VAR" id="OW+52J{_%pE|+9xbUm4U">左輪</field>
+                <value name="VALUE">
+                  <block type="math_number" id="$C}c4@Y3UHAJWs7iOVj^">
+                    <field name="NUM">255</field>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <statement name="ELSE">
+              <block type="variables_set" id="3xb:~4w4@rXuOcO$UtAx">
+                <field name="VAR" id="OW+52J{_%pE|+9xbUm4U">左輪</field>
+                <value name="VALUE">
+                  <block type="math_arithmetic" id="2GuRNlIqjq.{GMxq7G.1">
+                    <field name="OP">MULTIPLY</field>
+                    <value name="A">
+                      <shadow type="math_number" id="aT-hsa*TgFUE!atU=Kn6">
+                        <field name="NUM">1</field>
+                      </shadow>
+                      <block type="variables_get" id="cp+02)AzP]rHuf|%,nnq">
+                        <field name="VAR" id="L7*M.|1-:aTogt#gWFgY">右輪</field>
+                      </block>
+                    </value>
+                    <value name="B">
+                      <shadow type="math_number" id="jYBUB3Qa,+;rTz9yT/sU">
+                        <field name="NUM">0.9</field>
+                      </shadow>
+                      <block type="variables_get" id="hW6XPIE%mC{7[GLZL=(S">
+                        <field name="VAR" id="*[LIFXd(c+0H{#0`b~pc">輪差</field>
+                      </block>
+                    </value>
+                  </block>
+                </value>
+              </block>
+            </statement>
+            <next>
+              <block type="mlplay_return_value" id="@B,{IG3MMXHla=bx0*UM">
+                <value name="INPUT0">
+                  <shadow type="math_number" id="$_VX~bsLN3Dg9UW+[s=N">
+                    <field name="NUM">100</field>
+                  </shadow>
+                  <block type="variables_get" id="i3ZQeKE]3+_0M-t3WbQ6">
+                    <field name="VAR" id="OW+52J{_%pE|+9xbUm4U">左輪</field>
+                  </block>
+                </value>
+                <value name="INPUT1">
+                  <shadow type="math_number" id="5T1sg}wAJPf*y8($?i27">
+                    <field name="NUM">100</field>
+                  </shadow>
+                  <block type="variables_get" id="4Ms56i|do/]1hRgm#$Q4">
+                    <field name="VAR" id="L7*M.|1-:aTogt#gWFgY">右輪</field>
+                  </block>
+                </value>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="RESET">
+      <block type="variables_set" id="|FDI2}X^7S`tFzVNM}4=">
+        <field name="VAR" id="*[LIFXd(c+0H{#0`b~pc">輪差</field>
+        <value name="VALUE">
+          <block type="math_arithmetic" id="_BW$IANea{4[Yu~*ajsF">
+            <field name="OP">ADD</field>
+            <value name="A">
+              <shadow type="math_number" id="UoFqM3U:C(~qdqXez7Jz">
+                <field name="NUM">1</field>
+              </shadow>
+              <block type="variables_get" id="d2S1-G8xftWx*CP6W`#J">
+                <field name="VAR" id="*[LIFXd(c+0H{#0`b~pc">輪差</field>
+              </block>
+            </value>
+            <value name="B">
+              <shadow type="math_number" id="?rRB1S92*j*(ZHA6^j(~">
+                <field name="NUM">0.05</field>
+              </shadow>
+            </value>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>

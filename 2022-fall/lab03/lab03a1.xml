@@ -1,0 +1,84 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="*[LIFXd(c+0H{#0`b~pc">輪差</variable>
+    <variable id="L7*M.|1-:aTogt#gWFgY">右輪</variable>
+    <variable id="OW+52J{_%pE|+9xbUm4U">左輪</variable>
+  </variables>
+  <block type="mlplay_class" id="D2bg`lpqBJ-T*uuA%:m2" x="38" y="-138">
+    <statement name="INIT">
+      <block type="variables_set" id="DgAyr%n*Ti+KizI:hW8?">
+        <field name="VAR" id="*[LIFXd(c+0H{#0`b~pc">輪差</field>
+        <value name="VALUE">
+          <block type="math_number" id="WN)|=!8LXBbhT|2n}mQm">
+            <field name="NUM">0.9</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+    <statement name="UPDATE">
+      <block type="procedures_callnoreturn" id="_I)ZZ]FtyiM{U9.)2/*!">
+        <mutation name="全速前進偏左"></mutation>
+        <next>
+          <block type="mlplay_return_value" id="@B,{IG3MMXHla=bx0*UM">
+            <value name="INPUT0">
+              <shadow type="math_number" id="$_VX~bsLN3Dg9UW+[s=N">
+                <field name="NUM">100</field>
+              </shadow>
+              <block type="variables_get" id="i3ZQeKE]3+_0M-t3WbQ6">
+                <field name="VAR" id="OW+52J{_%pE|+9xbUm4U">左輪</field>
+              </block>
+            </value>
+            <value name="INPUT1">
+              <shadow type="math_number" id="5T1sg}wAJPf*y8($?i27">
+                <field name="NUM">100</field>
+              </shadow>
+              <block type="variables_get" id="4Ms56i|do/]1hRgm#$Q4">
+                <field name="VAR" id="L7*M.|1-:aTogt#gWFgY">右輪</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+  <block type="procedures_defnoreturn" id="0LbCV[/#R,ccY|Mz%od$" x="388" y="-138">
+    <field name="NAME">全速前進偏左</field>
+    <comment pinned="false" h="80" w="160">描述此函式...</comment>
+    <statement name="STACK">
+      <block type="variables_set" id="4L+*/g/aQajD[V_*!4Y4">
+        <field name="VAR" id="L7*M.|1-:aTogt#gWFgY">右輪</field>
+        <value name="VALUE">
+          <block type="math_number" id="`717qlKRP?`dr,?F:|KN">
+            <field name="NUM">255</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="CnqbYu^5akQ3PpFpxVK;">
+            <field name="VAR" id="OW+52J{_%pE|+9xbUm4U">左輪</field>
+            <value name="VALUE">
+              <block type="math_arithmetic" id="2GuRNlIqjq.{GMxq7G.1">
+                <field name="OP">MULTIPLY</field>
+                <value name="A">
+                  <shadow type="math_number" id="aT-hsa*TgFUE!atU=Kn6">
+                    <field name="NUM">1</field>
+                  </shadow>
+                  <block type="variables_get" id="cp+02)AzP]rHuf|%,nnq">
+                    <field name="VAR" id="L7*M.|1-:aTogt#gWFgY">右輪</field>
+                  </block>
+                </value>
+                <value name="B">
+                  <shadow type="math_number" id="jYBUB3Qa,+;rTz9yT/sU">
+                    <field name="NUM">0.9</field>
+                  </shadow>
+                  <block type="variables_get" id="hW6XPIE%mC{7[GLZL=(S">
+                    <field name="VAR" id="*[LIFXd(c+0H{#0`b~pc">輪差</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
