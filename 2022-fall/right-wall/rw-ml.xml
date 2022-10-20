@@ -342,7 +342,7 @@
                     </mutation>
                     <value name="ARG0">
                       <block type="math_number" id="44_mEUbXcVu*Y[R3n%0)">
-                        <field name="NUM">40</field>
+                        <field name="NUM">30</field>
                       </block>
                     </value>
                   </block>
@@ -381,7 +381,7 @@
                     </mutation>
                     <value name="ARG0">
                       <block type="math_number" id="}3LIGawjkvU,X0igL3Qt">
-                        <field name="NUM">40</field>
+                        <field name="NUM">30</field>
                       </block>
                     </value>
                   </block>

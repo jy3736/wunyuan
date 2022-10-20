@@ -165,16 +165,11 @@
           <block type="variables_set" id="Sggt8$:RKZU5UpP;d_|6">
             <field name="VAR" id="OW+52J{_%pE|+9xbUm4U">左輪</field>
             <value name="VALUE">
-              <block type="math_arithmetic" id="(Z7tb6dq_KNFShdGOi{[">
-                <field name="OP">MINUS</field>
-                <value name="A">
-                  <shadow type="math_number" id="Wv,FX|O76U=0m_5QJ_kX">
-                    <field name="NUM">-10</field>
-                  </shadow>
-                </value>
-                <value name="B">
-                  <shadow type="math_number" id="R:[|Q-U-bzS@KI;V#L;u">
-                    <field name="NUM">1</field>
+              <block type="math_single" id="uUHfN]P)l~^linv7Jos8">
+                <field name="OP">NEG</field>
+                <value name="NUM">
+                  <shadow type="math_number" id="eSgM)^63^*wFPA]wz~:N">
+                    <field name="NUM">9</field>
                   </shadow>
                   <block type="variables_get" id="y@?]R~oQvnI4T7B6tmQg">
                     <field name="VAR" id="w,;8jAxtT*#/M$6Y8OCL">速度</field>
@@ -197,18 +192,13 @@
       <block type="variables_set" id="f25!#?Hnd9fJFC]]$#|T">
         <field name="VAR" id="L7*M.|1-:aTogt#gWFgY">右輪</field>
         <value name="VALUE">
-          <block type="math_arithmetic" id="iWZX/~q`alWY*B3(O}90">
-            <field name="OP">MINUS</field>
-            <value name="A">
-              <shadow type="math_number" id="v#EvhwT|}C1e@EDB9q.c">
-                <field name="NUM">-10</field>
-              </shadow>
-            </value>
-            <value name="B">
+          <block type="math_single" id="dWxduv#t~{*}sT#,Rm%7">
+            <field name="OP">NEG</field>
+            <value name="NUM">
               <shadow type="math_number">
-                <field name="NUM">1</field>
+                <field name="NUM">9</field>
               </shadow>
-              <block type="variables_get" id="8]s,-xMBZR:[=.r`3^3)">
+              <block type="variables_get" id="#hDldRj5fd8twTySRoC_">
                 <field name="VAR" id="w,;8jAxtT*#/M$6Y8OCL">速度</field>
               </block>
             </value>
