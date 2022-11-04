@@ -1,0 +1,63 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="mlplay_class" id="qon51W=**yZ|CE~j^qs|" x="138" y="162">
+    <statement name="INIT">
+      <block type="text_print" id="0Sbo1sxccwzr?W17gUj@">
+        <value name="TEXT">
+          <shadow type="text" id="NE4J9kl3(EO7w4eRpBFV">
+            <field name="TEXT">遊戲開始...</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+    <statement name="UPDATE">
+      <block type="text_print" id="nKwO:@@TJp,Kr*oU}HJA">
+        <value name="TEXT">
+          <shadow type="text" id="o!xqV!U}#F?2Lz)du^Fg">
+            <field name="TEXT">遊戲進行中，每一張動畫的產生，就會執行這些積木會一次</field>
+          </shadow>
+          <block type="text_join" id="odBc%Vz@p^W8}z[S85Lh">
+            <mutation items="3"></mutation>
+            <value name="ADD0">
+              <block type="text" id="IsKyNF;[Np6O5*H@NzIo">
+                <field name="TEXT">遊戲進行中：第 </field>
+              </block>
+            </value>
+            <value name="ADD1">
+              <block type="mlplay_get_info" id="UoZgz}Q94~Q8Oy!j0ffl">
+                <field name="FIELD">scene_info['frame']</field>
+              </block>
+            </value>
+            <value name="ADD2">
+              <block type="text" id="x:E,gOO{Nc(.YBlGr#wK">
+                <field name="TEXT"> 【張/幀】動畫。</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <next>
+          <block type="mlplay_return_value" id="HYZ^T:0Noc0J]ld:;OJW">
+            <value name="INPUT0">
+              <shadow type="math_number" id="Ej/`{^ET~|{625eVxAE(">
+                <field name="NUM">255</field>
+              </shadow>
+            </value>
+            <value name="INPUT1">
+              <shadow type="math_number" id="go~6$v|4?^INeP/uQ[jG">
+                <field name="NUM">255</field>
+              </shadow>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="RESET">
+      <block type="text_print" id="sU7WTU*B1(fqQ$}3I!jj">
+        <value name="TEXT">
+          <shadow type="text" id="VT~SmjDXCD(fi%n~Pmn!">
+            <field name="TEXT">遊戲【結束】或【重置】。</field>
+          </shadow>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>

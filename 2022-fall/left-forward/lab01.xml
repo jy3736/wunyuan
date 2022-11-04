@@ -1,0 +1,96 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="mlplay_class" id="E6hjUuFZ)V;%2m?hd]Ra" x="338" y="87">
+    <statement name="UPDATE">
+      <block type="controls_if" id="~ZPF:1CCxOjae=Nmf!d2">
+        <mutation elseif="2"></mutation>
+        <value name="IF0">
+          <block type="logic_compare" id=",=fi]$r6h#:ZB^4#?$}7">
+            <field name="OP">GT</field>
+            <value name="A">
+              <block type="mlplay_get_info" id="!3NiNpb=rd}NKH=w9-V3">
+                <field name="FIELD">scene_info['L_T_sensor']</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="[N2p2r4MUU:G[7Ond|6V">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="mlplay_return_value" id="Bhr^cvVc`gn2kt/3XyaY">
+            <value name="INPUT0">
+              <shadow type="math_number" id="Zr9IS9S|%u;T}isd@=RT">
+                <field name="NUM">-30</field>
+              </shadow>
+            </value>
+            <value name="INPUT1">
+              <shadow type="math_number" id="u.OR6BKf]7m=XdA.?j;O">
+                <field name="NUM">30</field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+        <value name="IF1">
+          <block type="logic_compare" id="=2LwaWLFqR@$kImYHS(?">
+            <field name="OP">GT</field>
+            <value name="A">
+              <block type="mlplay_get_info" id="3%B3VwcTAY.P~Se++N=S">
+                <field name="FIELD">scene_info['F_sensor']</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="(Ta$SZ6`2|IXi1BeXWR]">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO1">
+          <block type="mlplay_return_value" id=",kv!ZJkCRe5oesJ2nu#y">
+            <value name="INPUT0">
+              <shadow type="math_number" id="[!9.f@^0[e{CN[k!w0/c">
+                <field name="NUM">100</field>
+              </shadow>
+            </value>
+            <value name="INPUT1">
+              <shadow type="math_number" id="p,yg)u7{aB-vypu_[9fR">
+                <field name="NUM">100</field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+        <value name="IF2">
+          <block type="logic_compare" id="?b{=F`7G}QeA+c92*Z5j">
+            <field name="OP">GT</field>
+            <value name="A">
+              <block type="mlplay_get_info" id=";reqo;gCqf{zs!B::vl!">
+                <field name="FIELD">scene_info['R_T_sensor']</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="e_QcT:CM_Hn]_$:FZ-$1">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO2">
+          <block type="mlplay_return_value" id="bW#u?:a84Pf:G+gW,BA}">
+            <value name="INPUT0">
+              <shadow type="math_number" id="jP6/`?(Fg`6`1kiFKvkx">
+                <field name="NUM">30</field>
+              </shadow>
+            </value>
+            <value name="INPUT1">
+              <shadow type="math_number" id="GAxzfhd`WPLPy,;]XE3H">
+                <field name="NUM">-30</field>
+              </shadow>
+            </value>
+          </block>
+        </statement>
+      </block>
+    </statement>
+  </block>
+</xml>

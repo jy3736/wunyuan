@@ -1,0 +1,139 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="kH.I8XP`fo4y=iqyXvzl">轉彎速度</variable>
+    <variable id="zOuxqae1@S!YOM.i~Y|/">前進速度</variable>
+  </variables>
+  <block type="mlplay_class" id="E6hjUuFZ)V;%2m?hd]Ra" x="338" y="87">
+    <statement name="INIT">
+      <block type="variables_set" id="._NFro]9w${K+!SneHSp">
+        <field name="VAR" id="kH.I8XP`fo4y=iqyXvzl">轉彎速度</field>
+        <value name="VALUE">
+          <block type="math_number" id="x*joXp$TCOa2m6Zu]Lww">
+            <field name="NUM">40</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id="rOZ)I%e6I^qmvKQgkY:7">
+            <field name="VAR" id="zOuxqae1@S!YOM.i~Y|/">前進速度</field>
+            <value name="VALUE">
+              <block type="math_number" id="8f,BYr:.[wY=:vBV@7?p">
+                <field name="NUM">255</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="UPDATE">
+      <block type="controls_if" id="~ZPF:1CCxOjae=Nmf!d2">
+        <mutation elseif="1"></mutation>
+        <value name="IF0">
+          <block type="logic_compare" id=",=fi]$r6h#:ZB^4#?$}7">
+            <field name="OP">GT</field>
+            <value name="A">
+              <block type="mlplay_get_info" id="!3NiNpb=rd}NKH=w9-V3">
+                <field name="FIELD">scene_info['R_T_sensor']</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="[N2p2r4MUU:G[7Ond|6V">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO0">
+          <block type="mlplay_return_value" id="bW#u?:a84Pf:G+gW,BA}">
+            <value name="INPUT0">
+              <shadow type="math_number" id="jP6/`?(Fg`6`1kiFKvkx">
+                <field name="NUM">30</field>
+              </shadow>
+              <block type="variables_get" id="O2?9h_mDZ1q_r4nE//Hq">
+                <field name="VAR" id="kH.I8XP`fo4y=iqyXvzl">轉彎速度</field>
+              </block>
+            </value>
+            <value name="INPUT1">
+              <shadow type="math_number" id="GAxzfhd`WPLPy,;]XE3H">
+                <field name="NUM">-30</field>
+              </shadow>
+              <block type="math_single" id="8!{Sxq=.dHibk]gkQtb!">
+                <field name="OP">NEG</field>
+                <value name="NUM">
+                  <shadow type="math_number">
+                    <field name="NUM">9</field>
+                  </shadow>
+                  <block type="variables_get" id="`L+I063m0}lEmU#wKu?.">
+                    <field name="VAR" id="kH.I8XP`fo4y=iqyXvzl">轉彎速度</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <value name="IF1">
+          <block type="logic_compare" id="=2LwaWLFqR@$kImYHS(?">
+            <field name="OP">GT</field>
+            <value name="A">
+              <block type="mlplay_get_info" id="3%B3VwcTAY.P~Se++N=S">
+                <field name="FIELD">scene_info['F_sensor']</field>
+              </block>
+            </value>
+            <value name="B">
+              <block type="math_number" id="(Ta$SZ6`2|IXi1BeXWR]">
+                <field name="NUM">10</field>
+              </block>
+            </value>
+          </block>
+        </value>
+        <statement name="DO1">
+          <block type="mlplay_return_value" id=",kv!ZJkCRe5oesJ2nu#y">
+            <value name="INPUT0">
+              <shadow type="math_number" id="[!9.f@^0[e{CN[k!w0/c">
+                <field name="NUM">100</field>
+              </shadow>
+              <block type="variables_get" id="1uIB3KBc$^ei!B[x|Us|">
+                <field name="VAR" id="zOuxqae1@S!YOM.i~Y|/">前進速度</field>
+              </block>
+            </value>
+            <value name="INPUT1">
+              <shadow type="math_number" id="p,yg)u7{aB-vypu_[9fR">
+                <field name="NUM">100</field>
+              </shadow>
+              <block type="variables_get" id="_uChoYLsdWTppHIa3IOr">
+                <field name="VAR" id="zOuxqae1@S!YOM.i~Y|/">前進速度</field>
+              </block>
+            </value>
+          </block>
+        </statement>
+        <next>
+          <block type="mlplay_return_value" id="Bhr^cvVc`gn2kt/3XyaY">
+            <value name="INPUT0">
+              <shadow type="math_number" id="Zr9IS9S|%u;T}isd@=RT">
+                <field name="NUM">-30</field>
+              </shadow>
+              <block type="math_single" id="jd`OjxqQWcs2c4^bqY_x">
+                <field name="OP">NEG</field>
+                <value name="NUM">
+                  <shadow type="math_number" id="M(6mT{~dN,kgiHP2`wFm">
+                    <field name="NUM">9</field>
+                  </shadow>
+                  <block type="variables_get" id="4Te99DOimpg0R=hq0@0+">
+                    <field name="VAR" id="kH.I8XP`fo4y=iqyXvzl">轉彎速度</field>
+                  </block>
+                </value>
+              </block>
+            </value>
+            <value name="INPUT1">
+              <shadow type="math_number" id="u.OR6BKf]7m=XdA.?j;O">
+                <field name="NUM">30</field>
+              </shadow>
+              <block type="variables_get" id="Gq%I$/[Lp|[CqoHGBe1:">
+                <field name="VAR" id="kH.I8XP`fo4y=iqyXvzl">轉彎速度</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+  </block>
+</xml>
