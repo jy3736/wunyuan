@@ -37,7 +37,7 @@
             </value>
             <value name="B">
               <block type="math_number" id="[N2p2r4MUU:G[7Ond|6V">
-                <field name="NUM">10</field>
+                <field name="NUM">8</field>
               </block>
             </value>
           </block>
@@ -80,7 +80,7 @@
             </value>
             <value name="B">
               <block type="math_number" id="(Ta$SZ6`2|IXi1BeXWR]">
-                <field name="NUM">10</field>
+                <field name="NUM">8</field>
               </block>
             </value>
           </block>
