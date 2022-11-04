@@ -1,0 +1,48 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="sr*:MU|}L0z)GQgQ~,fH">左輪轉速</variable>
+    <variable id="oev3;KvGvjX8K9]wGt%;">右輪轉速</variable>
+  </variables>
+  <block type="mlplay_class" id="e`9;?[tG)fM+Z@Nn#%1E" x="237" y="313">
+    <statement name="INIT">
+      <block type="variables_set" id="n^tN.$/t^0^`aN63^g5X">
+        <field name="VAR" id="sr*:MU|}L0z)GQgQ~,fH">左輪轉速</field>
+        <value name="VALUE">
+          <block type="math_number" id="_S)_UACda$n*wR7yBHi%">
+            <field name="NUM">100</field>
+          </block>
+        </value>
+        <next>
+          <block type="variables_set" id=";/lJa!i2@IJdL2PJ16!=">
+            <field name="VAR" id="oev3;KvGvjX8K9]wGt%;">右輪轉速</field>
+            <value name="VALUE">
+              <block type="math_number" id="[/fi=m#ehtc917f_jk75">
+                <field name="NUM">100</field>
+              </block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="UPDATE">
+      <block type="mlplay_return_value" id="=xpy@J/B+,/plDd9F+hC">
+        <value name="INPUT0">
+          <shadow type="math_number" id="f{zTB_Ja5X`ZEPNzJ^O(">
+            <field name="NUM">100</field>
+          </shadow>
+          <block type="variables_get" id="xEAh!0wZsRQ$[DSoaHbR">
+            <field name="VAR" id="sr*:MU|}L0z)GQgQ~,fH">左輪轉速</field>
+          </block>
+        </value>
+        <value name="INPUT1">
+          <shadow type="math_number" id="]FDj)Qappox~d{P5AU=E">
+            <field name="NUM">100</field>
+          </shadow>
+          <block type="variables_get" id="X~[{(nt@/_e|%fG0HjY5">
+            <field name="VAR" id="oev3;KvGvjX8K9]wGt%;">右輪轉速</field>
+          </block>
+        </value>
+      </block>
+    </statement>
+  </block>
+</xml>
