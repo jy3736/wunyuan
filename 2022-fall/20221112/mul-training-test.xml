@@ -1,0 +1,228 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="bZF*G~d.@0t%P5b4kn6Y">問題</variable>
+    <variable id="OHSF#?oN/A4*l@g`ujoh">答案</variable>
+    <variable id=";)wb[FYrY41+9YxciN_~">訓練資料</variable>
+    <variable id="wx,l3ufY?ZIJd()G,nfs">測試資料</variable>
+    <variable id="IZ@tFx1uU%(`|d/CFCqQ">訓練目標</variable>
+    <variable id="csp/?Vmg5dHT5ce4Uov2">測試目標</variable>
+    <variable id="ke3~%KA+=lNKhxN)^L1n">模型</variable>
+    <variable id="LWO?QU07]e3R85^GtXzp">全模型</variable>
+    <variable id="T|S^@/2[xLY@Sue1-oe-">訓練結果</variable>
+    <variable id="|V=ksvjTJ)wWCiHrto[)">測試結果</variable>
+  </variables>
+  <block type="variables_set" id="W)mo|oY|FdT!+$qINp6u" x="138" y="37">
+    <field name="VAR" id="bZF*G~d.@0t%P5b4kn6Y">問題</field>
+    <value name="VALUE">
+      <block type="lists_create_with" id="]i!h!Ni@]UEP5yY]Oc`~">
+        <mutation items="0"></mutation>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set" id="$VnFN+#=9VaQUvaIP!p2">
+        <field name="VAR" id="OHSF#?oN/A4*l@g`ujoh">答案</field>
+        <value name="VALUE">
+          <block type="lists_create_with" id="Vn9!NAz=lV45a5G_`E5y">
+            <mutation items="0"></mutation>
+          </block>
+        </value>
+        <next>
+          <block type="file_load" id="U]n%ou~dt7|LSDvmQQN)">
+            <value name="FILENAME">
+              <block type="text" id="[:.jTA/-hF2/,],0`czF">
+                <field name="TEXT">問題</field>
+              </block>
+            </value>
+            <value name="OBJECT">
+              <block type="variables_get" id="VA[b[)Qa-XguxSwmYo!8">
+                <field name="VAR" id="bZF*G~d.@0t%P5b4kn6Y">問題</field>
+              </block>
+            </value>
+            <next>
+              <block type="file_load" id="=P.V2jz^{Lm39cfvdEM2">
+                <value name="FILENAME">
+                  <block type="text" id="nxNhT)Qs0KdDeh5=-E|{">
+                    <field name="TEXT">答案</field>
+                  </block>
+                </value>
+                <value name="OBJECT">
+                  <block type="variables_get" id="i]PaQ{kpB!p^IT`;ekjZ">
+                    <field name="VAR" id="OHSF#?oN/A4*l@g`ujoh">答案</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="model_train_test_split" id="y^![)e(?WbjwXY//^dn_">
+                    <field name="SHUFFLE">True</field>
+                    <value name="X">
+                      <block type="variables_get" id="Map{uYn(iJd~/Vy@M%?j">
+                        <field name="VAR" id="bZF*G~d.@0t%P5b4kn6Y">問題</field>
+                      </block>
+                    </value>
+                    <value name="Y">
+                      <block type="variables_get" id="#wy{F15UEKG%{jtu8I0h">
+                        <field name="VAR" id="OHSF#?oN/A4*l@g`ujoh">答案</field>
+                      </block>
+                    </value>
+                    <value name="TEST_SIZE">
+                      <shadow type="math_number" id="?|W~MJ7:a?X4a#uZzBbs">
+                        <field name="NUM">0.5</field>
+                      </shadow>
+                    </value>
+                    <value name="TRAIN_DATA">
+                      <block type="variables_get" id="~(S(_yhMwNIzt73-j6B+">
+                        <field name="VAR" id=";)wb[FYrY41+9YxciN_~">訓練資料</field>
+                      </block>
+                    </value>
+                    <value name="TEST_DATA">
+                      <block type="variables_get" id="DG0wesc0b{Iu$M`*tg{+">
+                        <field name="VAR" id="wx,l3ufY?ZIJd()G,nfs">測試資料</field>
+                      </block>
+                    </value>
+                    <value name="TRAIN_TARGET">
+                      <block type="variables_get" id="EYxb5{{b[3`Lt8J,08U}">
+                        <field name="VAR" id="IZ@tFx1uU%(`|d/CFCqQ">訓練目標</field>
+                      </block>
+                    </value>
+                    <value name="TEST_TARGET">
+                      <block type="variables_get" id="my//Qc.6#~Chb:,h`?,,">
+                        <field name="VAR" id="csp/?Vmg5dHT5ce4Uov2">測試目標</field>
+                      </block>
+                    </value>
+                    <next>
+                      <block type="variables_set" id=";F!iu{i244RMZ-=[Nj=a">
+                        <field name="VAR" id="ke3~%KA+=lNKhxN)^L1n">模型</field>
+                        <value name="VALUE">
+                          <block type="model_create_regression" id="gS,c3vkl2cZg^vF1qu5!">
+                            <field name="MODEL">KNeighborsRegressor</field>
+                            <field name="PARAM_K">5</field>
+                            <field name="PARAM_WEIGHTS">distance</field>
+                            <field name="PARAM_ALGORITHM">auto</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="model_train" id="+t4B$4-pM)59GgRVSr^A">
+                            <value name="X">
+                              <block type="variables_get" id="9|ZG0@+bZhA=+,q42Jvn">
+                                <field name="VAR" id=";)wb[FYrY41+9YxciN_~">訓練資料</field>
+                              </block>
+                            </value>
+                            <value name="Y">
+                              <block type="variables_get" id="tTYEvD.X7B2=y(rzeS7~">
+                                <field name="VAR" id="IZ@tFx1uU%(`|d/CFCqQ">訓練目標</field>
+                              </block>
+                            </value>
+                            <value name="MODEL">
+                              <block type="variables_get" id="87NRwS*$5+3WH#@1XaxO">
+                                <field name="VAR" id="ke3~%KA+=lNKhxN)^L1n">模型</field>
+                              </block>
+                            </value>
+                            <next>
+                              <block type="file_save" id="Z[M#NNI@Ew8y^VrB]_Y!">
+                                <value name="OBJECT">
+                                  <block type="variables_get" id="6F6$~RQ_^npf~;@O_Eo)">
+                                    <field name="VAR" id="LWO?QU07]e3R85^GtXzp">全模型</field>
+                                  </block>
+                                </value>
+                                <value name="FILENAME">
+                                  <block type="text" id="te{Ek^bJgl~glNn80UeN">
+                                    <field name="TEXT">模型</field>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="variables_set" id="P*E.*h=HAu#n3D_S$}^H">
+                                    <field name="VAR" id="T|S^@/2[xLY@Sue1-oe-">訓練結果</field>
+                                    <value name="VALUE">
+                                      <block type="model_predict" id=";S#DvH+u:9O-**kojIu=">
+                                        <value name="MODEL">
+                                          <block type="variables_get" id="W6sps7ad=s9@=?Qjo}$/">
+                                            <field name="VAR" id="ke3~%KA+=lNKhxN)^L1n">模型</field>
+                                          </block>
+                                        </value>
+                                        <value name="X">
+                                          <block type="variables_get" id="6I@#(Eoxshf%A$0xW#l`">
+                                            <field name="VAR" id=";)wb[FYrY41+9YxciN_~">訓練資料</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="text_print" id="ey+qtW4ovfF}puE1/9Ri">
+                                        <value name="TEXT">
+                                          <shadow type="text">
+                                            <field name="TEXT">abc</field>
+                                          </shadow>
+                                          <block type="model_evaluate_regression" id="]{B3TLyT%0dH{s$Toq~-">
+                                            <field name="FUNC">MAE</field>
+                                            <value name="TRUE">
+                                              <block type="variables_get" id="}fm3tpgNr~c_mCHXrDya">
+                                                <field name="VAR" id="IZ@tFx1uU%(`|d/CFCqQ">訓練目標</field>
+                                              </block>
+                                            </value>
+                                            <value name="PRED">
+                                              <block type="variables_get" id="w#,M)4.~faf*e2|_c~/y">
+                                                <field name="VAR" id="T|S^@/2[xLY@Sue1-oe-">訓練結果</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                        <next>
+                                          <block type="variables_set" id="@=GdNpFb6:b,+:h%PJH[">
+                                            <field name="VAR" id="|V=ksvjTJ)wWCiHrto[)">測試結果</field>
+                                            <value name="VALUE">
+                                              <block type="model_predict" id="PH$k~Y4gLDPyAuP7R7bh">
+                                                <value name="MODEL">
+                                                  <block type="variables_get" id="y*%-MjD;amu4qI{49L+f">
+                                                    <field name="VAR" id="ke3~%KA+=lNKhxN)^L1n">模型</field>
+                                                  </block>
+                                                </value>
+                                                <value name="X">
+                                                  <block type="variables_get" id="btq$rQ$@(##bo0PVB5IV">
+                                                    <field name="VAR" id="wx,l3ufY?ZIJd()G,nfs">測試資料</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                            <next>
+                                              <block type="text_print" id=",KT:o_hzH.~AqrcOQp;F">
+                                                <value name="TEXT">
+                                                  <shadow type="text" id="d*:Kz3NT{foAQ_W%!Zi{">
+                                                    <field name="TEXT">abc</field>
+                                                  </shadow>
+                                                  <block type="model_evaluate_regression" id=".4vTb}JgL#9K,J;]m!!(">
+                                                    <field name="FUNC">MAE</field>
+                                                    <value name="TRUE">
+                                                      <block type="variables_get" id="s)wJ%6p0=PZq:a!A4Enu">
+                                                        <field name="VAR" id="csp/?Vmg5dHT5ce4Uov2">測試目標</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="PRED">
+                                                      <block type="variables_get" id="@!lVg4DT3Rg/q8}P=T~R">
+                                                        <field name="VAR" id="|V=ksvjTJ)wWCiHrto[)">測試結果</field>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </next>
+                                          </block>
+                                        </next>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </next>
+                          </block>
+                        </next>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

@@ -1,0 +1,239 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="S.JMR$J0Zf=I5WCU4!7/">問題</variable>
+    <variable id="?YTvq{p1N?.L(C]LK;aZ">預測答案</variable>
+    <variable id=",^^{5fW]Lw0h5w;FD,ns">AI模型</variable>
+    <variable id="/X/T8cm8VdF`{P+q]V2C">被乘數</variable>
+    <variable id="dZe0Voyl|I)Hdd]yRi`V">乘數</variable>
+  </variables>
+  <block type="variables_set" id="Oj}pV$k%2$,;Hy*_aGYz" x="112" y="13">
+    <field name="VAR" id="S.JMR$J0Zf=I5WCU4!7/">問題</field>
+    <value name="VALUE">
+      <block type="lists_create_with" id="k,ZO3Qi(gp%}LkoGoS#=">
+        <mutation items="0"></mutation>
+      </block>
+    </value>
+    <next>
+      <block type="variables_set" id="WxB%P2RUZe|+.+XDJOt|">
+        <field name="VAR" id="?YTvq{p1N?.L(C]LK;aZ">預測答案</field>
+        <value name="VALUE">
+          <block type="lists_create_with" id="m8ZQa{Kk-tm48`bM[Fv@">
+            <mutation items="0"></mutation>
+          </block>
+        </value>
+        <next>
+          <block type="file_load" id="YPTd3qIM#E:UzD!=k]]O">
+            <value name="FILENAME">
+              <block type="text" id=".oah8`r(){A~aoLvk)TB">
+                <field name="TEXT">模型</field>
+              </block>
+            </value>
+            <value name="OBJECT">
+              <block type="variables_get" id="z-o]?$igt{n1)didj(}=">
+                <field name="VAR" id=",^^{5fW]Lw0h5w;FD,ns">AI模型</field>
+              </block>
+            </value>
+            <next>
+              <block type="text_print" id="@n_=gdsmM`uGfAp3l|:^">
+                <value name="TEXT">
+                  <shadow type="text">
+                    <field name="TEXT">abc</field>
+                  </shadow>
+                  <block type="text" id="C8sc(%*0_c643))-wqM|">
+                    <field name="TEXT">被乘數×乘數＝積</field>
+                  </block>
+                </value>
+                <next>
+                  <block type="controls_for" id="ga/FGfvrg}9pfbaVMk7c">
+                    <field name="VAR" id="/X/T8cm8VdF`{P+q]V2C">被乘數</field>
+                    <value name="FROM">
+                      <shadow type="math_number" id="i$5A!Qhd_3a/o~TD~K:M">
+                        <field name="NUM">1</field>
+                      </shadow>
+                    </value>
+                    <value name="TO">
+                      <shadow type="math_number" id="9~lydq7T|w*cN?@1EQO,">
+                        <field name="NUM">9</field>
+                      </shadow>
+                    </value>
+                    <value name="BY">
+                      <shadow type="math_number" id="G_DpU~VET+6TwllS@KyJ">
+                        <field name="NUM">1</field>
+                      </shadow>
+                    </value>
+                    <statement name="DO">
+                      <block type="text_print" id="U5fiq$fY;lswZL]DAxOX">
+                        <value name="TEXT">
+                          <shadow type="text">
+                            <field name="TEXT">abc</field>
+                          </shadow>
+                          <block type="text" id="yrtK,q~bKYkr1ZKV)7Fv">
+                            <field name="TEXT">--------------------------------------------</field>
+                          </block>
+                        </value>
+                        <next>
+                          <block type="controls_for" id="|M~Hj@R.Fq?oPC?jn2)-">
+                            <field name="VAR" id="dZe0Voyl|I)Hdd]yRi`V">乘數</field>
+                            <value name="FROM">
+                              <shadow type="math_number" id="NbIpi?LZR%.fa_k8!CPs">
+                                <field name="NUM">1</field>
+                              </shadow>
+                            </value>
+                            <value name="TO">
+                              <shadow type="math_number" id="MCd{1x6e(.q~5XgY+4|y">
+                                <field name="NUM">9</field>
+                              </shadow>
+                            </value>
+                            <value name="BY">
+                              <shadow type="math_number" id="af-.Fg$4UfP|SILc%%*c">
+                                <field name="NUM">1</field>
+                              </shadow>
+                            </value>
+                            <statement name="DO">
+                              <block type="variables_set" id="VlJOMcbm6TdrAt6LOyEC">
+                                <field name="VAR" id="S.JMR$J0Zf=I5WCU4!7/">問題</field>
+                                <value name="VALUE">
+                                  <block type="lists_create_with" id="c5leQL6]q5$j|P{mCcOe">
+                                    <mutation items="1"></mutation>
+                                    <value name="ADD0">
+                                      <block type="lists_create_with" id="UuldhzPOCIjd2M}nd[@)">
+                                        <mutation items="2"></mutation>
+                                        <comment pinned="false" h="62" w="352">一定要根據特徵資料收集的順序和項目喔!</comment>
+                                        <value name="ADD0">
+                                          <block type="variables_get" id="7h?9sk*$1=e+2^]1hPFq">
+                                            <field name="VAR" id="/X/T8cm8VdF`{P+q]V2C">被乘數</field>
+                                          </block>
+                                        </value>
+                                        <value name="ADD1">
+                                          <block type="variables_get" id="xrC1,h3zCF|^RdnJ%!_1">
+                                            <field name="VAR" id="dZe0Voyl|I)Hdd]yRi`V">乘數</field>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                  </block>
+                                </value>
+                                <next>
+                                  <block type="variables_set" id="S^A+!/}2qT}5%iJeXf:x">
+                                    <field name="VAR" id="?YTvq{p1N?.L(C]LK;aZ">預測答案</field>
+                                    <value name="VALUE">
+                                      <block type="lists_getIndex" id="BUdxJ],PV0rZFA[xjKY,">
+                                        <mutation statement="false" at="false"></mutation>
+                                        <field name="MODE">GET</field>
+                                        <field name="WHERE">FIRST</field>
+                                        <value name="VALUE">
+                                          <block type="model_predict" id="B:kdP!rcCkUqTL:%uXxj">
+                                            <value name="MODEL">
+                                              <block type="variables_get" id="DPrqSlH6j}$cX=glQjNf">
+                                                <field name="VAR" id=",^^{5fW]Lw0h5w;FD,ns">AI模型</field>
+                                              </block>
+                                            </value>
+                                            <value name="X">
+                                              <block type="variables_get" id=".v%f1lx~Lo3S2+c)Wc^u">
+                                                <field name="VAR" id="S.JMR$J0Zf=I5WCU4!7/">問題</field>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </value>
+                                    <next>
+                                      <block type="text_print" id="AEwtx5vy4Uq4G{6G-a/m">
+                                        <value name="TEXT">
+                                          <shadow type="text">
+                                            <field name="TEXT">abc</field>
+                                          </shadow>
+                                          <block type="text_join" id="15@7Wq4)LdB::?_CD{}_">
+                                            <mutation items="6"></mutation>
+                                            <value name="ADD0">
+                                              <block type="variables_get" id="4gT0NAy0*!ENDr/FLeY@">
+                                                <field name="VAR" id="/X/T8cm8VdF`{P+q]V2C">被乘數</field>
+                                              </block>
+                                            </value>
+                                            <value name="ADD1">
+                                              <block type="text" id="xyu/zG1-z}}}P%,oqeWY">
+                                                <field name="TEXT">X</field>
+                                              </block>
+                                            </value>
+                                            <value name="ADD2">
+                                              <block type="variables_get" id="@;n=aRTi{0~e5gRU{[u5">
+                                                <field name="VAR" id="dZe0Voyl|I)Hdd]yRi`V">乘數</field>
+                                              </block>
+                                            </value>
+                                            <value name="ADD3">
+                                              <block type="text" id="%uXsQBbYKInYB!$=g4n*">
+                                                <field name="TEXT">=</field>
+                                              </block>
+                                            </value>
+                                            <value name="ADD4">
+                                              <block type="variables_get" id="Xu?y5//HXdpSoHIwYW:C">
+                                                <field name="VAR" id="?YTvq{p1N?.L(C]LK;aZ">預測答案</field>
+                                              </block>
+                                            </value>
+                                            <value name="ADD5">
+                                              <block type="logic_ternary" id="EDZ^mreoOReOW]kQ_SX:">
+                                                <value name="IF">
+                                                  <block type="logic_compare" id="RwU-VJN1.:o_WbDB`arv">
+                                                    <field name="OP">EQ</field>
+                                                    <value name="A">
+                                                      <block type="variables_get" id="W,fcqw+(o+=?MPWruCM6">
+                                                        <field name="VAR" id="?YTvq{p1N?.L(C]LK;aZ">預測答案</field>
+                                                      </block>
+                                                    </value>
+                                                    <value name="B">
+                                                      <block type="math_arithmetic" id=".2G5*(M)#;EL_zod2iMj">
+                                                        <field name="OP">MULTIPLY</field>
+                                                        <value name="A">
+                                                          <shadow type="math_number" id="1Sepn-=jNkYE$Xgu$hfq">
+                                                            <field name="NUM">1</field>
+                                                          </shadow>
+                                                          <block type="variables_get" id="Bbra|^YeQ;uJ|y%f.5DA">
+                                                            <field name="VAR" id="/X/T8cm8VdF`{P+q]V2C">被乘數</field>
+                                                          </block>
+                                                        </value>
+                                                        <value name="B">
+                                                          <shadow type="math_number" id="BChV9[K#vH0KiNRA;9Hi">
+                                                            <field name="NUM">1</field>
+                                                          </shadow>
+                                                          <block type="variables_get" id="y,A$d*M,T`BB)im,CHzs">
+                                                            <field name="VAR" id="dZe0Voyl|I)Hdd]yRi`V">乘數</field>
+                                                          </block>
+                                                        </value>
+                                                      </block>
+                                                    </value>
+                                                  </block>
+                                                </value>
+                                                <value name="THEN">
+                                                  <block type="text" id="95(UPg0m^KH9T3o]b*jW">
+                                                    <field name="TEXT"></field>
+                                                  </block>
+                                                </value>
+                                                <value name="ELSE">
+                                                  <block type="text" id="syJVnC=HO.U8hHn1$uA_">
+                                                    <field name="TEXT">      x</field>
+                                                  </block>
+                                                </value>
+                                              </block>
+                                            </value>
+                                          </block>
+                                        </value>
+                                      </block>
+                                    </next>
+                                  </block>
+                                </next>
+                              </block>
+                            </statement>
+                          </block>
+                        </next>
+                      </block>
+                    </statement>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </next>
+  </block>
+</xml>

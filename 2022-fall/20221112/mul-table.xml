@@ -1,0 +1,121 @@
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <variables>
+    <variable id="T{h^r3vXy4-TfLTlFjtV">被乘數</variable>
+    <variable id="dcVY!_#%qiL1dA[[UgFc">乘數</variable>
+  </variables>
+  <block type="text_print" id="$q4vlq`g/Wqv6:feW)Yl" x="137" y="138">
+    <value name="TEXT">
+      <shadow type="text" id="i`!7-Gp/-Aq`3r$(e78+">
+        <field name="TEXT">abc</field>
+      </shadow>
+      <block type="text" id="p7VpM_oH-|Ru1=I#mVH$">
+        <field name="TEXT">被乘數×乘數＝積</field>
+      </block>
+    </value>
+    <next>
+      <block type="controls_for" id="0#.XC+T`@XUMeuyUqZMO">
+        <field name="VAR" id="T{h^r3vXy4-TfLTlFjtV">被乘數</field>
+        <value name="FROM">
+          <shadow type="math_number" id="kU^#~^f^$EYmhWbyH87|">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <value name="TO">
+          <shadow type="math_number" id="B|8KlpY!gQq(!m]#?EDQ">
+            <field name="NUM">9</field>
+          </shadow>
+        </value>
+        <value name="BY">
+          <shadow type="math_number" id="txKkB%cph})93!|!35Gm">
+            <field name="NUM">1</field>
+          </shadow>
+        </value>
+        <statement name="DO">
+          <block type="text_print" id="I5JHY2%|w.Y8[rf$2dkk">
+            <value name="TEXT">
+              <shadow type="text">
+                <field name="TEXT">abc</field>
+              </shadow>
+              <block type="text" id="LS{8RX@6Sg6R#FwE2UP2">
+                <field name="TEXT">--------------------------------------------</field>
+              </block>
+            </value>
+            <next>
+              <block type="controls_for" id="+*8d@tNqX$6m)D`d}1^p">
+                <field name="VAR" id="dcVY!_#%qiL1dA[[UgFc">乘數</field>
+                <value name="FROM">
+                  <shadow type="math_number" id="5T`-6j(He~,Ryiss,taH">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+                <value name="TO">
+                  <shadow type="math_number" id="~d%3Tp?s0=yD#YF[j0`j">
+                    <field name="NUM">9</field>
+                  </shadow>
+                </value>
+                <value name="BY">
+                  <shadow type="math_number" id="1uirOemBf7$I:gH.QbXL">
+                    <field name="NUM">1</field>
+                  </shadow>
+                </value>
+                <statement name="DO">
+                  <block type="text_print" id=")/6y[(6^9?4HvU};Y2o$">
+                    <value name="TEXT">
+                      <shadow type="text" id="d[J4*3z6jKbYnti}+e?G">
+                        <field name="TEXT">abc</field>
+                      </shadow>
+                      <block type="text_join" id="D`,|kJ5]iNSGbQR6ViCK">
+                        <mutation items="5"></mutation>
+                        <value name="ADD0">
+                          <block type="variables_get" id="Y_EVbFW7$z^ftU8u*o?3">
+                            <field name="VAR" id="T{h^r3vXy4-TfLTlFjtV">被乘數</field>
+                          </block>
+                        </value>
+                        <value name="ADD1">
+                          <block type="text" id="NmXGFO8jKmh,qb.l?A]u">
+                            <field name="TEXT">X</field>
+                          </block>
+                        </value>
+                        <value name="ADD2">
+                          <block type="variables_get" id="Xg?cc;U8x#]h/nXfjiuK">
+                            <field name="VAR" id="dcVY!_#%qiL1dA[[UgFc">乘數</field>
+                          </block>
+                        </value>
+                        <value name="ADD3">
+                          <block type="text" id="oIpU_$t#%M,uCbX;;I7Y">
+                            <field name="TEXT">=</field>
+                          </block>
+                        </value>
+                        <value name="ADD4">
+                          <block type="math_arithmetic" id="*[$@Kbc]@[_f2nGIe(_p">
+                            <field name="OP">MULTIPLY</field>
+                            <value name="A">
+                              <shadow type="math_number" id="2Gk5V2+NS?pjAo=z5Cuy">
+                                <field name="NUM">1</field>
+                              </shadow>
+                              <block type="variables_get" id="jeoW`@o71$7R!yhNGj%`">
+                                <field name="VAR" id="T{h^r3vXy4-TfLTlFjtV">被乘數</field>
+                              </block>
+                            </value>
+                            <value name="B">
+                              <shadow type="math_number" id="@Y]NV{K.ZnJ2qgNDeheG">
+                                <field name="NUM">1</field>
+                              </shadow>
+                              <block type="variables_get" id="{:x$UnB8~!c#v$ImH+1[">
+                                <field name="VAR" id="dcVY!_#%qiL1dA[[UgFc">乘數</field>
+                              </block>
+                            </value>
+                          </block>
+                        </value>
+                      </block>
+                    </value>
+                  </block>
+                </statement>
+              </block>
+            </next>
+          </block>
+        </statement>
+      </block>
+    </next>
+  </block>
+</xml>
